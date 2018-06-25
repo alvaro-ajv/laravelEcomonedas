@@ -1,7 +1,8 @@
 @extends('layouts.master')
 @section('titulo','Pagina Principal')
+@section('claseTransparente','navbar-transparent navbar-color-on-scroll ')
 @section('index')
-  <div class="page-header header-filter" data-parallax="true" style="background-image: url('img/profile_city.jpg')">
+  <div class="page-header header-filter" data-parallax="true" style="background-image: url('img/mundo.jpg')">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -58,76 +59,51 @@
         </div>
       </div>
       <div class="section text-center">
-        <h2 class="title">Here is our team</h2>
+        <h2 class="title">Materiales Aceptados</h2>
         <div class="team">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="team-player">
-                <div class="card card-plain">
-                  <div class="col-md-6 ml-auto mr-auto">
-                    <img src="img/faces/avatar.jpg" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
-                  </div>
-                  <h4 class="card-title">Gigi Hadid
-                    <br>
-                    <small class="card-description text-muted">Model</small>
-                  </h4>
-                  <div class="card-body">
-                    <p class="card-description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                      <a href="#">links</a> for people to be able to follow them outside the site.</p>
-                  </div>
-                  <div class="card-footer justify-content-center">
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fab fa-facebook-square"></i></a>
-                  </div>
+          <!--Inicio multislider-->
+            <div class="">
+              <div id="mixedSlider">
+                <div class="MS-content">
+                  @foreach ($materiales as $material)
+                    <div class="item">
+                      <div class="card" style="width: 18rem;">
+                        <img class="card-img-top img-raised rounded-circle img-fluid" style="border:4px solid {{ $material->color }}" src="{{ url('imgMateriales/'.$material->imagen) }}" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">{{ $material->nombre }}</h5>
+                          <p class="card-text">Precio en ecomonedas: {{ $material->precio }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  @endforeach
+                  @foreach ($materiales as $material)
+                    <div class="item">
+                      <div class="card" style="width: 18rem;">
+                        <img class="card-img-top img-raised rounded-circle img-fluid" style="border:4px solid {{ $material->color }}" src="{{ url('imgMateriales/'.$material->imagen) }}" alt="Card image cap">
+                        <div class="card-body">
+                          <h5 class="card-title">{{ $material->nombre }}</h5>
+                          <p class="card-text">Precio en ecomonedas: {{ $material->precio }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  @endforeach
+
+                </div>
+                <div class="MS-controls">
+                  <button class="MS-left"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                  <button class="MS-right"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
                 </div>
               </div>
+              <!--Fin multislider-->
+
             </div>
-            <div class="col-md-4">
-              <div class="team-player">
-                <div class="card card-plain">
-                  <div class="col-md-6 ml-auto mr-auto">
-                    <img src="img/faces/christian.jpg" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
-                  </div>
-                  <h4 class="card-title">Christian Louboutin
-                    <br>
-                    <small class="card-description text-muted">Designer</small>
-                  </h4>
-                  <div class="card-body">
-                    <p class="card-description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                      <a href="#">links</a> for people to be able to follow them outside the site.</p>
-                  </div>
-                  <div class="card-footer justify-content-center">
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fab fa-linkedin"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="team-player">
-                <div class="card card-plain">
-                  <div class="col-md-6 ml-auto mr-auto">
-                    <img src="img/faces/kendall.jpg" alt="Thumbnail Image" class="img-raised rounded-circle img-fluid">
-                  </div>
-                  <h4 class="card-title">Kendall Jenner
-                    <br>
-                    <small class="card-description text-muted">Model</small>
-                  </h4>
-                  <div class="card-body">
-                    <p class="card-description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some
-                      <a href="#">links</a> for people to be able to follow them outside the site.</p>
-                  </div>
-                  <div class="card-footer justify-content-center">
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#pablo" class="btn btn-link btn-just-icon"><i class="fab fa-facebook-square"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
+
           </div>
+
+
         </div>
+
+
       </div>
       <div class="section section-contacts">
         <div class="row">
